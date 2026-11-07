@@ -88,9 +88,8 @@ mkdir poc-greeting
     -v "$PWD":/workspace \
     agy-sandbox agy --dangerously-skip-permissions
   ```
-  
-  > [!CAUTION]
-  > In auto-pilot mode, per-token usage with a key is billed through the Gemini API (AI Studio or Google Cloud billing), separately from the subscription
+> [!CAUTION]
+> In auto-pilot mode, per-token usage with a key is billed through the Gemini API (AI Studio or Google Cloud billing), separately from the subscription
 
 ## Code agent sample
 
