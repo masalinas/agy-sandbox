@@ -7,14 +7,14 @@ docker build -t agy-sandbox .
 ```
 
 ## Start agent
-By default the workspace wher the sandbox will created is called workspace. Exeucte the command inside your working folder to attach thr volumen to workspace inside
+By default the working folder where the agent sandbox will be used is called workspace. Any command executed by the agent will be aisle inside the volume mounted with the container.\
 
-Create a simple working folder called poc-greeting to save our code
+Create a simple working folder called poc-greeting to save our code:
 ```shell
 mkdir poc-greeting
 ```
 
-Execute our docker antigravity cli docker container in interactive mode
+Execute our docker antigravity cli docker container in interactive mode to start thr agent inside the working foler called poc-greeting:
 ```shell
 docker run --rm -it \
   --cap-drop=ALL --security-opt no-new-privileges \
@@ -22,8 +22,9 @@ docker run --rm -it \
   agy-sandbox agy --dangerously-skip-permissions
 ```
 
-The agent show a antigravity link to copy and paste in our chrome and obtain our access token to login in our account. Paste this token and permit the interaction of our agent with our working space localed in the docker volumne. In this case the agent only will have access the volume:
+The agent will show an antigravity link to copy and paste in our web browser to obtain our access token to login in our goole account. Paste this token in the CLI and permit the interaction of our agent with our working folder localed in the docker volume:
 
+Finally prompt the agent with our simple greeting poc in python. All code generated gy the agent will be inside the working folder poc-greeting, to be started and tested later:
 ```shell
 Start the sample with a prompt like:
 
@@ -71,7 +72,7 @@ Start the sample with a prompt like:
 ```
 
 ## Test agent results
-The agent create the project inside out volume, so we can create a virtual environment for it, download dependencies and execute the FastAPI server to test with swagger UI accessible:
+The agent create all the code for our sample, so we can create a virtual environment, download dependencies and execute the FastAPI server to test with swagger UI accessible:
 
 ```shell
 python3.12 -m venv .venv
