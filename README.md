@@ -7,7 +7,7 @@ docker build -t agy-sandbox .
 ```
 
 ## Start agent
-By default the workspace wher the sandbox will created is called workspace. Exeucte the command inside your working folder to attach thr volumen to workspace inside
+By default the workspace where the sandbox will created is called workspace. Execute the command inside your working folder to attach the volumen to your working folder.\
 
 Create a simple working folder called poc-greeting to save our code
 ```shell
