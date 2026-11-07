@@ -89,9 +89,8 @@ mkdir poc-greeting
     agy-sandbox agy --dangerously-skip-permissions
   ```
 
-  <span style="color:red">
-  In auto-pilot mode, per-token usage with a key is billed through the Gemini API (AI Studio or Google Cloud billing), separately from the subscription
-  </span>
+  > [!CAUTION]
+  >   In auto-pilot mode, per-token usage with a key is billed through the Gemini API (AI Studio or Google Cloud billing), separately from the subscription
 
 ## Code agent sample
 
