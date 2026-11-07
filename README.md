@@ -1,7 +1,7 @@
 # Description
 Create a docker container with antigravity agent inside
 
-## Build image
+## Build image
 ```shell
 docker build -t agy-sandbox .
 ```
