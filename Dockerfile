@@ -38,10 +38,14 @@ USER agent
 # Build-time check: fails if agy doesn't work
 RUN agy --version
 
+# Entrypoint: applies the optional first-run configuration when AGY_AUTOCONFIG=true (see entrypoint.sh)
+COPY --chown=agent:agent --chmod=755 entrypoint.sh /usr/local/bin/entrypoint.sh
+
 # The student's repo is mounted here at runtime
 WORKDIR /workspace
 USER root
 RUN mkdir -p /workspace && chown agent:agent /workspace
 USER agent
 
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["bash"]

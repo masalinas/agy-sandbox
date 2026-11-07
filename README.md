@@ -1,115 +1,150 @@
 # Description
-Antigravity CLI agent aisle sandbox from a docker container
+Create a docker container with antigravity agent inside
 
-## Build image
+## Build image
 ```shell
 docker build -t agy-sandbox .
 ```
 
 ## Start agent
-By default the working folder where the agent sandbox will be used is called workspace. Any command executed by the agent will be aisle inside the volume mounted with the container.\
+By default the workspace wher the sandbox will created is called workspace. Exeucte the command inside your working folder to attach thr volumen to workspace inside
 
-Create a simple working folder called poc-greeting to save our code:
+Create a simple working folder called poc-greeting to save our code
 ```shell
 mkdir poc-greeting
 ```
 
-Execute our docker antigravity cli docker container in interactive mode to start thr agent inside the working foler called poc-greeting:
-```shell
-docker run --rm -it \
-  --cap-drop=ALL --security-opt no-new-privileges \
-  -v "$PWD":/workspace \
-  agy-sandbox agy --dangerously-skip-permissions
-```
+- Execute our docker antigravity cli docker container in interactive mode. We must select the color theme, the license and accept permissions for our working folder:
 
-The agent will show an antigravity link to copy and paste in our web browser to obtain our access token to login in our goole account. Paste this token in the CLI and permit the interaction of our agent with our working folder localed in the docker volume:
+  ```shell
+  docker run --rm -it \
+    --cap-drop=ALL --security-opt no-new-privileges \
+    -v "$PWD":/workspace \
+    agy-sandbox agy --dangerously-skip-permissions
+  ```
 
-Finally prompt the agent with our simple greeting poc in python. All code generated gy the agent will be inside the working folder poc-greeting, to be started and tested later:
-```shell
-     ▄▀▀▄
-    ▀▀▀▀▀▀
-   ▀▀▀▀▀▀▀▀
-  ▄▀▀    ▀▀▄
- ▄▀▀      ▀▀▄
+  The agent show a antigravity link to copy and paste in our chrome and obtain our access token to login in our account. Paste this token and permit the interaction of our agent with our working space localed in the docker volumne. In this case the agent only will have access the volume:
 
- Welcome to the Antigravity CLI. You are currently not signed in.
+  ```shell
+  The agent will show an antigravity link to copy and paste in our web browser to obtain our access token to login in our goole account. Paste this token in the CLI and permit the interaction of our agent with our working folder localed in the docker volume:
 
- Select login method:
- > 1. Google OAuth
-   2. Use a Google Cloud project
+      ▄▀▀▄
+      ▀▀▀▀▀▀
+    ▀▀▀▀▀▀▀▀
+    ▄▀▀    ▀▀▄
+  ▄▀▀      ▀▀▄
 
-   ↑/↓ Navigate · enter Select
+  Welcome to the Antigravity CLI. You are currently not signed in.
 
+  Select login method:
+  > 1. Google OAuth
+    2. Use a Google Cloud project
 
-     ▄▀▀▄
-    ▀▀▀▀▀▀
-   ▀▀▀▀▀▀▀▀
-  ▄▀▀    ▀▀▄
- ▄▀▀      ▀▀▄
+    ↑/↓ Navigate · enter Select
+  ```
 
- Your browser should open automatically. If not:
+  ```shell
+      ▄▀▀▄
+      ▀▀▀▀▀▀
+    ▀▀▀▀▀▀▀▀
+    ▄▀▀    ▀▀▄
+  ▄▀▀      ▀▀▄
 
- <GOOGLE_LINK_TO_BE_COPIED_IN_WEB_BROWSER>
+  Your browser should open automatically. If not:
 
- Copy and paste the URL or click on the link below:
- ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- → Click here to authenticate
- ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  <GOOGLE_LINK_TO_BE_COPIED_IN_WEB_BROWSER>
 
- If you aren't automatically redirected, paste the authorization code below:
+  Copy and paste the URL or click on the link below:
+  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  → Click here to authenticate
+  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
- authorization code...
+  If you aren't automatically redirected, paste the authorization code below:
 
+  authorization code...
 
   shift+up/down Navigate
+  ```
 
-Start the sample with a prompt like:
+  ```shell
+        ▄▀▀▄        Antigravity CLI 1.5.3
+      ▀▀▀▀▀▀       Gemini API key
+      ▀▀▀▀▀▀▀▀      Gemini 3.1 Pro (Low)
+    ▄▀▀    ▀▀▄     /workspace
+    ▄▀▀      ▀▀▄
 
-      ▄▀▀▄        Antigravity CLI 1.5.3
-     ▀▀▀▀▀▀       masalinas.gancedo@gmail.com (Google AI Pro)
-    ▀▀▀▀▀▀▀▀      Gemini 4 Argon (Medium)
-   ▄▀▀    ▀▀▄     /workspace
-  ▄▀▀      ▀▀▄
-────────────────────────────────────────────────────────────
-> Code a simple fastapi python project using pyproject.toml and implement a greeting endpoint where send a text as string and reponsse like: Hello +
-  <string>
-○ Thought for 20.7s (Considering potential input formats beyond the expected, specifically raw strings or JSON bodies with a "text" key. Preparing t...)
-● Ran (ls -la /workspace)
-● Edited 3 files (pyproject.toml, main.py, README.md) (ctrl+o to expand)
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  >
+  ───────────────────────────
+  ```
 
-  I have created the FastAPI project in /workspace:
+- Execute our docker antigravity cli docker container in auto-pilot mode. The color theme (dark by default), the license and accept permissions are auto configured:
 
-  • pyproject.toml — Project configuration with fastapi and uvicorn dependencies.
-  • main.py — FastAPI application defining the greeting endpoints:
-      • greet_get: GET /greet?text=<string> → "Hello <string>"
-      • greet_path: GET /greet/{text} → "Hello <string>"
-      • greet_post: POST /greet with JSON {"text": "<string>"} → "Hello <string>"
-  • README.md — Quickstart instructions.
+  ```shell
+  docker run --rm -it \
+    --cap-drop=ALL --security-opt no-new-privileges \
+    -e AGY_AUTOCONFIG=true \
+    -e GEMINI_API_KEY=<GEMINI_API_KEY> \
+    -v "$PWD":/workspace \
+    agy-sandbox agy --dangerously-skip-permissions
+  ```
 
-  ### How to run
+  <span style="color:red">
+  In auto-pilot mode, per-token usage with a key is billed through the Gemini API (AI Studio or Google Cloud billing), separately from the subscription
+  </span>
 
-    pip install -e .
-    uvicorn main:app --reload
+## Code agent sample
 
-  ### Example usage
+  Finally prompt the agent with our simple greeting poc in python. All code generated gy the agent will be inside the working folder poc-greeting, to be started and tested later:
 
-    # Query parameter
-    curl "http://127.0.0.1:8000/greet?text=World"
-    # -> "Hello World"
+  ```shell
+  Start the sample with a prompt like:
 
-    # Path parameter
-    curl "http://127.0.0.1:8000/greet/World"
-    # -> "Hello World"
+        ▄▀▀▄        Antigravity CLI 1.5.3
+      ▀▀▀▀▀▀       masalinas.gancedo@gmail.com (Google AI Pro)
+      ▀▀▀▀▀▀▀▀      Gemini 4 Argon (Medium)
+    ▄▀▀    ▀▀▄     /workspace
+    ▄▀▀      ▀▀▄
+  ────────────────────────────────────────────────────────────
+  > Code a simple fastapi python project using pyproject.toml and implement a greeting endpoint where send a text as string and reponsse like: Hello +
+    <string>
+  ○ Thought for 20.7s (Considering potential input formats beyond the expected, specifically raw strings or JSON bodies with a "text" key. Preparing t...)
+  ● Ran (ls -la /workspace)
+  ● Edited 3 files (pyproject.toml, main.py, README.md) (ctrl+o to expand)
 
-    # POST JSON payload
-    curl -X POST "http://127.0.0.1:8000/greet" \
-      -H "Content-Type: application/json" \
-      -d '{"text": "World"}'
-    # -> "Hello World"
-```
+    I have created the FastAPI project in /workspace:
 
-## Test Project
-The agent create all the code for our sample, so we can create a virtual environment, download dependencies and execute the FastAPI server to test with swagger UI accessible from our working folder:
+    • pyproject.toml — Project configuration with fastapi and uvicorn dependencies.
+    • main.py — FastAPI application defining the greeting endpoints:
+        • greet_get: GET /greet?text=<string> → "Hello <string>"
+        • greet_path: GET /greet/{text} → "Hello <string>"
+        • greet_post: POST /greet with JSON {"text": "<string>"} → "Hello <string>"
+    • README.md — Quickstart instructions.
+
+    ### How to run
+
+      pip install -e .
+      uvicorn main:app --reload
+
+    ### Example usage
+
+      # Query parameter
+      curl "http://127.0.0.1:8000/greet?text=World"
+      # -> "Hello World"
+
+      # Path parameter
+      curl "http://127.0.0.1:8000/greet/World"
+      # -> "Hello World"
+
+      # POST JSON payload
+      curl -X POST "http://127.0.0.1:8000/greet" \
+        -H "Content-Type: application/json" \
+        -d '{"text": "World"}'
+      # -> "Hello World"
+  ```
+
+## Test agent results
+The agent create the project inside out volume, so we can create a virtual environment for it, download dependencies and execute the FastAPI server to test with swagger UI accessible:
 
 ```shell
 python3.12 -m venv .venv
