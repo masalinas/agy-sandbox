@@ -26,6 +26,43 @@ The agent will show an antigravity link to copy and paste in our web browser to 
 
 Finally prompt the agent with our simple greeting poc in python. All code generated gy the agent will be inside the working folder poc-greeting, to be started and tested later:
 ```shell
+     ▄▀▀▄
+    ▀▀▀▀▀▀
+   ▀▀▀▀▀▀▀▀
+  ▄▀▀    ▀▀▄
+ ▄▀▀      ▀▀▄
+
+ Welcome to the Antigravity CLI. You are currently not signed in.
+
+ Select login method:
+ > 1. Google OAuth
+   2. Use a Google Cloud project
+
+   ↑/↓ Navigate · enter Select
+
+
+     ▄▀▀▄
+    ▀▀▀▀▀▀
+   ▀▀▀▀▀▀▀▀
+  ▄▀▀    ▀▀▄
+ ▄▀▀      ▀▀▄
+
+ Your browser should open automatically. If not:
+
+ <GOOGLE_LINK_TO_BE_COPIED_IN_WEB_BROWSER>
+
+ Copy and paste the URL or click on the link below:
+ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ → Click here to authenticate
+ ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ If you aren't automatically redirected, paste the authorization code below:
+
+ authorization code...
+
+
+  shift+up/down Navigate
+
 Start the sample with a prompt like:
 
       ▄▀▀▄        Antigravity CLI 1.5.3
