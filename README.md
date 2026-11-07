@@ -16,7 +16,7 @@ mkdir poc-greeting
 
 We can execute our agent container in two modes interactive and auto-pilot mode:
 
-- Execute our docker antigravity cli docker container in **interactive mode**. We must select the color theme, the license and accept permissions for our working folder:
+- Execute our agent container in **interactive mode**. We must select the color theme, the license and accept permissions for our working folder:
 
   ```shell
   docker run --rm -it \
@@ -80,7 +80,7 @@ We can execute our agent container in two modes interactive and auto-pilot mode:
   ───────────────────────────
   ```
 
-- Execute our docker antigravity cli docker container in **auto-pilot** mode. The color theme (dark by default), the license and accept permissions are auto configured:
+- Execute our agent container in **auto-pilot** mode. The color theme (dark by default), the license and accept permissions are auto configured:
 
   ```shell
   docker run --rm -it \
