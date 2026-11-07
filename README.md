@@ -1,5 +1,5 @@
 # Description
-Create a docker container with antigravity agent inside
+Antigravity agent aisle sandbox from a docker container
 
 ## Build image
 ```shell
