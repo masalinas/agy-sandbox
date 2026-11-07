@@ -1,5 +1,5 @@
 # Description
-Antigravity agent aisle sandbox from a docker container
+Antigravity CLI agent aisle sandbox from a docker container
 
 ## Build image
 ```shell
