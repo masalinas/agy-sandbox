@@ -108,8 +108,8 @@ Start the sample with a prompt like:
     # -> "Hello World"
 ```
 
-## Test agent results
-The agent create all the code for our sample, so we can create a virtual environment, download dependencies and execute the FastAPI server to test with swagger UI accessible:
+## Test Project
+The agent create all the code for our sample, so we can create a virtual environment, download dependencies and execute the FastAPI server to test with swagger UI accessible from our working folder:
 
 ```shell
 python3.12 -m venv .venv
